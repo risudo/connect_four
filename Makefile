@@ -1,7 +1,8 @@
 NAME = a.out
 
 SRCS =	main.cpp \
-		Board.cpp
+		Board.cpp \
+		MainPlayer.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)

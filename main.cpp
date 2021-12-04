@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Board.hpp"
+#include "MainPlayer.hpp"
+#include "define.hpp"
 
 void print_board()
 {
@@ -20,10 +22,15 @@ void print_board()
 
 int main()
 {
+	std::cout << CLEAR << MOVE_TOP;
 	Board b;
+	MainPlayer p1(b, "rsudo");
+	MainPlayer p2(b, "a");
 
-	b.printBoard();
-	b.setPiece(1, 1, '2');
-	b.printBoard();
+	while (1)
+	{
+		p1.Select();
+		p2.Select();
+	}
 	return 0;
 }
