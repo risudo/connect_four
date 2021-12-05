@@ -17,7 +17,6 @@ MainPlayer::~MainPlayer()
 
 void MainPlayer::Select()
 {
-	std::cout << MOVE_TOP << DELETE;
 	static int col[7] = {5, 5, 5, 5, 5, 5, 5};
 
 	_b.printBoard();
@@ -30,7 +29,7 @@ void MainPlayer::Select()
 	// validate
 	// Set
 	int row = nb[0] - '0' - 1;
-	_b.setPiece(col[row], row, c);
+	_b.setPiece(col[row], row, c, _name);
 	// static インクリメント
 	row[col]--;
 }
