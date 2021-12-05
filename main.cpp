@@ -3,29 +3,14 @@
 #include "MainPlayer.hpp"
 #include "define.hpp"
 
-void print_board()
-{
-	std::cout << "┌───┬───┬───┬───┬───┬───┬───┐" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "├───┼───┼───┼───┼───┼───┼───┤" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "├───┼───┼───┼───┼───┼───┼───┤" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "├───┼───┼───┼───┼───┼───┼───┤" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "├───┼───┼───┼───┼───┼───┼───┤" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "├───┼───┼───┼───┼───┼───┼───┤" << std::endl;
-	std::cout << "│   │   │   │   │   │   │   │" << std::endl;
-	std::cout << "└───┴───┴───┴───┴───┴───┴───┘" << std::endl;
-}
-
+// TODO: バリデーション
+// TODO: 名前入力
 int main()
 {
 	std::cout << CLEAR << MOVE_TOP;
 	Board b;
 	MainPlayer p1(b, "rsudo");
-	MainPlayer p2(b, "a");
+	MainPlayer p2(b, "hoge");
 
 	while (1)
 	{

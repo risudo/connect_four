@@ -76,38 +76,10 @@ void Board::setPiece(const int col, const int row, const char piece, const std::
 	}
 }
 
-bool Board::check_slash(int col, int row, const char c) const
+bool Board::check_downward(int col, int row, const char c) const
 {
-	int i = col;
-	int j = row;
-	while (i < 6 && j < 7 && _map[i][j] == c)
-	{
-		i++;
-		j++;
-	}
 	int cnt = 0;
-	while (i > 0 && j > 0)
-	{
-		if (_map[i][j] == c)
-		{
-			cnt++;
-		}
-		if (cnt == 4)
-		{
-			return true;
-		}
-		i--;
-		j--;
-	}
-	return false;
-}
 
-bool Board::is_four_in_a_row(int col, int row) const
-{
-	const char c = _map[col][row];
-
-	// 下方向
-	int cnt = 0;
 	for (int i = col; i < 6; i++)
 	{
 		if (_map[i][row] == c)
@@ -119,10 +91,14 @@ bool Board::is_four_in_a_row(int col, int row) const
 			return true;
 		}
 	}
+	return false;
+}
 
-	// 横方向
-	cnt = 0;
+bool Board::check_horizontal(int col, int row, const char c) const
+{
+	int cnt = 0;
 	int i;
+
 	for (i = row; i < 7; i++)
 	{
 		if (_map[col][i] != c)
@@ -141,13 +117,80 @@ bool Board::is_four_in_a_row(int col, int row) const
 			return true;
 		}
 	}
-	// スラッシュ方向
-	if (check_slash(col, row, c))
+	return false;
+}
+
+bool Board::check_slash_direction(int col, int row, const char c) const
+{
+	int i = col;
+	int j = row;
+	while (i < 6 && j > 0 && _map[i][j] == c)
+	{
+		i++;
+		j--;
+	}
+	int cnt = 0;
+	while (i > 0 && j < 7)
+	{
+		if (_map[i][j] == c)
+		{
+			cnt++;
+		}
+		if (cnt == 4)
+		{
+			return true;
+		}
+		i--;
+		j++;
+	}
+	return false;
+}
+
+bool Board::check_backslash_direction(int col, int row, const char c) const
+{
+	int cnt = 0;
+	int i;
+
+	for (i = row; i < 7; i++)
+	{
+		if (_map[col][i] != c)
+		{
+			break ;
+		}
+	}
+	for (int j= i; j >= 0; j--)
+	{
+		if (_map[col][j] == c)
+		{
+			cnt++;
+		}
+		if (cnt == 4)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool Board::is_four_in_a_row(int col, int row) const
+{
+	const char c = _map[col][row];
+
+	if (check_downward(col, row, c))
 	{
 		return true;
 	}
-	// バックスラッシュ方向
-
-	std::cout << RESET;
+	if (check_horizontal(col, row, c))
+	{
+		return true;
+	}
+	if (check_slash_direction(col, row, c))
+	{
+		return true;
+	}
+	if (check_backslash_direction(col, row, c))
+	{
+		return true;
+	}
 	return false;
 }

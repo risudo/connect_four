@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = four_in_a_row
 
 SRCS =	main.cpp \
 		Board.cpp \
