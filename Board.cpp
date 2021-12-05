@@ -76,11 +76,36 @@ void Board::setPiece(const int col, const int row, const char piece, const std::
 	}
 }
 
+bool Board::check_slash(int col, int row, const char c) const
+{
+	int i = col;
+	int j = row;
+	while (i < 6 && j < 7 && _map[i][j] == c)
+	{
+		i++;
+		j++;
+	}
+	int cnt = 0;
+	while (i > 0 && j > 0)
+	{
+		if (_map[i][j] == c)
+		{
+			cnt++;
+		}
+		if (cnt == 4)
+		{
+			return true;
+		}
+		i--;
+		j--;
+	}
+	return false;
+}
+
 bool Board::is_four_in_a_row(int col, int row) const
 {
 	const char c = _map[col][row];
 
-	std::cout << RED;
 	// 下方向
 	int cnt = 0;
 	for (int i = col; i < 6; i++)
@@ -88,19 +113,39 @@ bool Board::is_four_in_a_row(int col, int row) const
 		if (_map[i][row] == c)
 		{
 			cnt++;
-			// std::cout << "col: " << i << std::endl;
-			// std::cout << "row: " << row << std::endl;
-			// std::cout << "cnt: " << cnt << std::endl;
 		}
 		if (cnt == 4)
 		{
-			std::cout << RESET;
 			return true;
 		}
 	}
-	// 右方向
-	// 左方向
+
+	// 横方向
+	cnt = 0;
+	int i;
+	for (i = row; i < 7; i++)
+	{
+		if (_map[col][i] != c)
+		{
+			break ;
+		}
+	}
+	for (int j= i; j >= 0; j--)
+	{
+		if (_map[col][j] == c)
+		{
+			cnt++;
+		}
+		if (cnt == 4)
+		{
+			return true;
+		}
+	}
 	// スラッシュ方向
+	if (check_slash(col, row, c))
+	{
+		return true;
+	}
 	// バックスラッシュ方向
 
 	std::cout << RESET;
