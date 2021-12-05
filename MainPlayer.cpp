@@ -49,7 +49,7 @@ void put_arrow(int pos)
 {
 	std::cout << "\033[14;1H" << DELETE_LINE;
 	std::cout << "\033[14;" << pos * 4 + 3 << "H";
-	std::cout << "↑" << std::flush;
+	std::cout << "↑" << HIDE_CUR << std::flush;
 }
 
 void MainPlayer::Select()
@@ -82,13 +82,6 @@ void MainPlayer::Select()
 
 		}
 	}
-
-	// std::cout << " (1) (2) (3) (4) (5) (6) (7)\n" << std::endl;
-	// std::cout << "TURN: < " << _name << " >" << std::endl;
-	// std::cout << "Select number 1 ~ 7 > " << std::flush;
-
-	// int row = nb[0] - '0' - 1;
 	_b.setPiece(col[pos], pos, c, _name);
-	// static インクリメント
 	col[pos]--;
 }

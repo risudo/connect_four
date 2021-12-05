@@ -3,7 +3,7 @@
 #include "MainPlayer.hpp"
 #include "define.hpp"
 
-// TODO: バリデーション
+// TODO: 縦の入力数のバリデーション
 // TODO: 名前入力
 int main()
 {

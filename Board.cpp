@@ -46,24 +46,6 @@ void Board::printBoard() const
 	std::cout << "└───┴───┴───┴───┴───┴───┴───┘" << std::endl;
 }
 
-void Board::printMap() const
-{
-	std::cout << "--- printMap() ---" << std::endl;
-	for (int i = 0; i < 6; i++)
-	{
-		for (int j = 0; j < 7; j++)
-		{
-			std::cout << _map[i][j];
-		}
-		std::cout << std::endl;
-	}
-	std::cout << "------------------" << std::endl;
-}
-// void Board::setPiece(const int col, const int row, const char piece, const std::string &name)
-// {
-
-// }
-
 void Board::setPiece(const int col, const int row, const char piece, const std::string &name)
 {
 	_map[col][row] = piece;
@@ -82,9 +64,10 @@ bool Board::check_downward(int col, int row, const char c) const
 
 	for (int i = col; i < 6; i++)
 	{
-		if (_map[i][row] == c)
-		{
+		if (_map[i][row] == c) {
 			cnt++;
+		} else {
+			cnt = 0;
 		}
 		if (cnt == 4)
 		{
@@ -108,9 +91,10 @@ bool Board::check_horizontal(int col, int row, const char c) const
 	}
 	for (int j= i; j >= 0; j--)
 	{
-		if (_map[col][j] == c)
-		{
+		if (_map[col][j] == c) {
 			cnt++;
+		} else {
+			cnt = 0;
 		}
 		if (cnt == 4)
 		{
@@ -132,9 +116,10 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 	int cnt = 0;
 	while (i > 0 && j < 7)
 	{
-		if (_map[i][j] == c)
-		{
+		if (_map[i][j] == c) {
 			cnt++;
+		} else {
+			cnt = 0;
 		}
 		if (cnt == 4)
 		{
@@ -160,9 +145,10 @@ bool Board::check_backslash_direction(int col, int row, const char c) const
 	}
 	for (int j= i; j >= 0; j--)
 	{
-		if (_map[col][j] == c)
-		{
+		if (_map[col][j] == c) {
 			cnt++;
+		} else {
+			cnt = 0;
 		}
 		if (cnt == 4)
 		{
