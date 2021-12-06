@@ -59,6 +59,7 @@ void MainPlayer::Select()
 	_b.printBoard();
 	std::cout << "\n\n" << _name << "'s turn" << std::endl;
 	std::cout << "Press A, D and ENTER" << std::endl;
+
 	int pos = 0;
 	put_arrow(pos);
 	while (1)
@@ -67,7 +68,7 @@ void MainPlayer::Select()
 		{
 			int c = getchar();
 
-			if (c == ENTER) {
+			if (c == ENTER && col[pos] >= 0) {
 				std::cout << "enter" << std::endl;
 				break ;
 			} else if (c == A && pos > 0) {

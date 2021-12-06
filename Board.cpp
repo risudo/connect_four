@@ -48,12 +48,22 @@ void Board::printBoard() const
 
 void Board::setPiece(const int col, const int row, const char piece, const std::string &name)
 {
+	static int cnt;
+
 	_map[col][row] = piece;
+	cnt++;
 	if (is_four_in_a_row(col, row))
 	{
 		printBoard();
-		std::cout << name << " WIN!!" << std::endl;
-		sleep(2);
+		std::cout << "\n" << name << " WIN!!" << std::endl;
+		sleep(1);
+		std::exit(0);
+	}
+	if (cnt == 42)
+	{
+		printBoard();
+		std::cout << "\nDRAW!" << std::endl;
+		sleep(1);
 		std::exit(0);
 	}
 }
