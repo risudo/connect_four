@@ -90,18 +90,10 @@ bool Board::check_downward(int col, int row, const char c) const
 bool Board::check_horizontal(int col, int row, const char c) const
 {
 	int cnt = 0;
-	int i;
 
-	for (i = row; i < 7; i++)
+	for (int i = 0; i < 7; i++)
 	{
-		if (_map[col][i] != c)
-		{
-			break ;
-		}
-	}
-	for (int j= i; j >= 0; j--)
-	{
-		if (_map[col][j] == c) {
+		if (_map[col][i] == c) {
 			cnt++;
 		} else {
 			cnt = 0;
@@ -111,6 +103,7 @@ bool Board::check_horizontal(int col, int row, const char c) const
 			return true;
 		}
 	}
+	(void)row;
 	return false;
 }
 
@@ -118,13 +111,14 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 {
 	int i = col;
 	int j = row;
-	while (i < 6 && j > 0 && _map[i][j] == c)
+	while (i < 5 && j > 0)
 	{
 		i++;
 		j--;
 	}
 	int cnt = 0;
-	while (i > 0 && j < 7)
+
+	while (i >= 0 && j <= 7)
 	{
 		if (_map[i][j] == c) {
 			cnt++;
@@ -143,19 +137,17 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 
 bool Board::check_backslash_direction(int col, int row, const char c) const
 {
-	int cnt = 0;
-	int i;
-
-	for (i = row; i < 7; i++)
+	int i = col;
+	int j = row;
+	while (i < 5 && j < 6)
 	{
-		if (_map[col][i] != c)
-		{
-			break ;
-		}
+		i++;
+		j++;
 	}
-	for (int j= i; j >= 0; j--)
+	int cnt = 0;
+	while (i >= 0 && j >= 0)
 	{
-		if (_map[col][j] == c) {
+		if (_map[i][j] == c) {
 			cnt++;
 		} else {
 			cnt = 0;
@@ -164,6 +156,8 @@ bool Board::check_backslash_direction(int col, int row, const char c) const
 		{
 			return true;
 		}
+		i--;
+		j--;
 	}
 	return false;
 }

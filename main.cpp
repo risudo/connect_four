@@ -1,16 +1,35 @@
 #include <iostream>
 #include "Board.hpp"
-#include "MainPlayer.hpp"
+#include "HUM_Player.hpp"
 #include "define.hpp"
 
 // TODO: 名前入力
 // TODO: << のオーバーロード
+
+std::string input_name()
+{
+	static int n;
+
+	n++;
+
+	std::cout << "Enter Player" << n << " name > " << std::flush;
+	std::string name;
+	std::getline(std::cin, name);
+	if (!std::cin)
+	{
+		std::exit(1);
+	}
+	return name;
+}
+
 int main()
 {
 	std::cout << CLEAR << MOVE_TOP;
 	Board b;
-	MainPlayer p1(b, "rsudo");
-	MainPlayer p2(b, "hoge");
+	std::string name1 = input_name();
+	std::string name2 = input_name();
+	HUM_Player p1(b, name1);
+	HUM_Player p2(b, name2);
 
 	while (1)
 	{

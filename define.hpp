@@ -19,5 +19,6 @@
 #define ENTER 10
 #define A 97
 #define D 100
+#define CNT_FULL 42
 
 #endif /* DEFINE_HPP */

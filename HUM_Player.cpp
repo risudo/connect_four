@@ -1,20 +1,20 @@
-#include "MainPlayer.hpp"
+#include "HUM_Player.hpp"
 #include <iostream>
 #include "define.hpp"
 #include <termios.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-int MainPlayer::cnt = 0;
+int HUM_Player::cnt = 0;
 
-MainPlayer::MainPlayer(Board &b, std::string name):
+HUM_Player::HUM_Player(Board &b, std::string name):
 	_b(b), _name(name)
 {
 	cnt++;
 	c = cnt + '0';
 }
 
-MainPlayer::~MainPlayer()
+HUM_Player::~HUM_Player()
 {
 }
 
@@ -52,7 +52,7 @@ void put_arrow(int pos)
 	std::cout << "↑" << HIDE_CUR << std::flush;
 }
 
-void MainPlayer::Select()
+void HUM_Player::Select()
 {
 	static int col[7] = {5, 5, 5, 5, 5, 5, 5};
 

@@ -2,7 +2,7 @@ NAME = four_in_a_row
 
 SRCS =	main.cpp \
 		Board.cpp \
-		MainPlayer.cpp
+		HUM_Player.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
@@ -22,6 +22,9 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+sanitize: CXXFLAGS += -fsanitize=address -g3
+sanitize: re
 
 -include $(DEPS)
 
