@@ -3,9 +3,6 @@
 #include "HUM_Player.hpp"
 #include "define.hpp"
 
-// TODO: 名前入力
-// TODO: << のオーバーロード
-
 std::string input_name()
 {
 	static int n;

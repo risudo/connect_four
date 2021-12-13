@@ -80,7 +80,6 @@ void HUM_Player::Select()
 			} else {
 				put_arrow(pos);
 			}
-
 		}
 	}
 	_b.setPiece(col[pos], pos, c, _name);
