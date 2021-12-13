@@ -1,15 +1,15 @@
 # 四目並べ
 コマンドライン上で遊べる重力付き四目並べをC++で作りました。
 
-# 実行方法、遊び方
-## ビルド
+# 実行方法
+### ビルド
 ```
 $ git clone https://github.com/risudo/Four_in_a_row.git
 $ cd Four_in_a_row
 $ make
 ```
 
-## 実行
+### 実行
 ```
 $ ./for_in_a_row
 ```
