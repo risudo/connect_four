@@ -5,13 +5,13 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-int HUM_Player::cnt = 0;
+int HUM_Player::nb = 0;
 
 HUM_Player::HUM_Player(Board &b, std::string name):
 	_b(b), _name(name)
 {
-	cnt++;
-	c = cnt + '0';
+	nb++;
+	_c = nb + '0';
 }
 
 HUM_Player::~HUM_Player()
@@ -82,6 +82,6 @@ void HUM_Player::Select()
 			}
 		}
 	}
-	_b.setPiece(col[pos], pos, c, _name);
+	_b.setPiece(col[pos], pos, _c, _name);
 	col[pos]--;
 }

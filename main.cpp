@@ -8,7 +8,7 @@ std::string input_name()
 	static int n;
 
 	n++;
-
+	std::cout << CLEAR << MOVE_TOP;
 	std::cout << "Enter Player" << n << " name > " << std::flush;
 	std::string name;
 	std::getline(std::cin, name);
@@ -21,10 +21,9 @@ std::string input_name()
 
 int main()
 {
-	std::cout << CLEAR << MOVE_TOP;
-	Board b;
 	std::string name1 = input_name();
 	std::string name2 = input_name();
+	Board b;
 	HUM_Player p1(b, name1);
 	HUM_Player p2(b, name2);
 

@@ -111,14 +111,14 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 {
 	int i = col;
 	int j = row;
-	while (i < 5 && j > 0)
+	while (i <= 5 && j >= 0)
 	{
 		i++;
 		j--;
 	}
 	int cnt = 0;
 
-	while (i >= 0 && j <= 7)
+	while (--i >= 0 && ++j <= 7)
 	{
 		if (_map[i][j] == c) {
 			cnt++;
@@ -129,8 +129,6 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 		{
 			return true;
 		}
-		i--;
-		j++;
 	}
 	return false;
 }
@@ -139,13 +137,13 @@ bool Board::check_backslash_direction(int col, int row, const char c) const
 {
 	int i = col;
 	int j = row;
-	while (i < 5 && j < 6)
+	while (i <= 5 && j <= 6)
 	{
 		i++;
 		j++;
 	}
 	int cnt = 0;
-	while (i >= 0 && j >= 0)
+	while (--i >= 0 && --j >= 0)
 	{
 		if (_map[i][j] == c) {
 			cnt++;
@@ -156,8 +154,6 @@ bool Board::check_backslash_direction(int col, int row, const char c) const
 		{
 			return true;
 		}
-		i--;
-		j--;
 	}
 	return false;
 }

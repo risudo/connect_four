@@ -12,8 +12,8 @@ public:
 private:
 	Board &_b;
 	std::string _name;
-	char c;
-	static int cnt;
+	char _c;
+	static int nb;
 };
 
 #endif /* HUM_Player_HPP */
