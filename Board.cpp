@@ -117,7 +117,6 @@ bool Board::check_slash_direction(int col, int row, const char c) const
 		j--;
 	}
 	int cnt = 0;
-
 	while (--i >= 0 && ++j <= 7)
 	{
 		if (_map[i][j] == c) {

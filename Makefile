@@ -1,4 +1,4 @@
-NAME = four_in_a_row
+NAME = connent_four
 
 SRCS =	main.cpp \
 		Board.cpp \
