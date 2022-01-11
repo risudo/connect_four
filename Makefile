@@ -8,7 +8,7 @@ OBJS = $(SRCS:.cpp=.o)
 DEPS = $(SRCS:.cpp=.d)
 
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -std=gnu++98 -pedantic
+CXXFLAGS = -Wall -Wextra -Werror -MMD -MP -pedantic
 
 all: $(NAME)
 
