@@ -4,8 +4,8 @@
 # 実行方法
 ### ビルド
 ```
-$ git clone https://github.com/risudo/Four_in_a_row.git
-$ cd Four_in_a_row
+$ git clone https://github.com/risudo/connect_four.git
+$ cd connect_four
 $ make
 ```
 
